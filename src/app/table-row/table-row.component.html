@@ -1,0 +1,33 @@
+<tr class="table-row">
+	<td class="table-cell name-cell">
+		<div class="name-container">
+			<i class="material-icons" (click)="showSubrow = !showSubrow">{{
+				showSubrow ? 'expand_more' : 'chevron_right'
+			}}</i>
+			<span>
+				{{ row.name }}
+			</span>
+		</div>
+	</td>
+	<ng-container *ngTemplateOutlet="commonCellTemplate; context: { row: row }"> </ng-container>
+</tr>
+
+<!-- Subrows -->
+<ng-container *ngIf="showSubrow">
+	<tr class="table-row table-subrow" *ngFor="let subrow of row.children">
+		<td class="table-cell name-cell">{{ subrow.name }}</td>
+		<ng-container *ngTemplateOutlet="commonCellTemplate; context: { row: subrow }"> </ng-container>
+	</tr>
+</ng-container>
+
+<!-- Initial Margin,IM % of Total Column -->
+<ng-template #commonCellTemplate let-row="row">
+	<td class="table-cell">{{ row.imValue.symbol }} {{ row.imValue.price }}</td>
+	<td class="table-cell">
+		<og-progress-bar
+			[context]="'TABLE'"
+			[totalParts]="maxValue"
+			[completedParts]="row.imValue.price"
+		></og-progress-bar>
+	</td>
+</ng-template>

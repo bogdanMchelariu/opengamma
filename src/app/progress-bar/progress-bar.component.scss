@@ -1,0 +1,49 @@
+/*!
+ * Copyright (C) 2018 - present by OpenGamma Inc. and the OpenGamma group of companies
+ *
+ * Please see distribution for license.
+ */
+
+@import 'variables';
+
+$green: #4cd964;
+$turquoise: #5ac8fa;
+$blue: #007aff;
+$light-blue: #7dc8e8;
+$purple: #5856d6;
+$red: #ff2d55;
+
+.bar__track {
+	height: 2px;
+	background: $line-color;
+	margin: 4 * $base-spacing-unit 0;
+}
+
+.bar__value {
+	background: $bar-color;
+	display: block;
+	height: 100%;
+	&.progress-loading {
+		width: 100%;
+		background-image: linear-gradient(to right, $green, $turquoise, $blue, $light-blue, $purple, $red);
+		animation: colorAnimation 1s infinite;
+	}
+}
+
+@keyframes colorAnimation {
+	0% {
+		background-image: linear-gradient(to right, $green, $turquoise, $blue, $light-blue, $purple, $red);
+	}
+	20% {
+		background-image: linear-gradient(to right, $turquoise, $blue, $light-blue, $purple, $red, $green);
+	}
+	40% {
+		background-image: linear-gradient(to right, $blue, $light-blue, $purple, $red, $green, $turquoise);
+	}
+	60% {
+		background-image: linear-gradient(to right, $light-blue, $purple, $red, $green, $turquoise, $blue);
+	}
+	100% {
+		background-image: linear-gradient(to right, $purple, $red, $green, $turquoise, $blue, $light-blue);
+	}
+}

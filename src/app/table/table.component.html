@@ -1,0 +1,15 @@
+<table class="im-table">
+	<tr class="table-header">
+		<td class="header-item">
+			<div>Name</div>
+		</td>
+		<td class="header-item">
+			<div>Initial Margin</div>
+		</td>
+		<td class="header-item">
+			<div>IM % of Total</div>
+		</td>
+	</tr>
+
+	<og-table-row *ngFor="let row of data" [row]="row" [maxValue]="maxValue()"></og-table-row>
+</table>

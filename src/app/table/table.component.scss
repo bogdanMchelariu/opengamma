@@ -1,0 +1,23 @@
+@import 'variables';
+
+og-table {
+	display: flex;
+	color: $text-color;
+	font-family: 'Nunito';
+	font-weight: 600;
+	font-size: 1em;
+	.im-table {
+		flex: 1;
+		border-spacing: 0;
+		border-top: 1px solid $line-color;
+		border-left: 1px solid $line-color;
+		.header-item {
+			padding: $padding;
+			border-bottom: 1px solid $line-color;
+			border-right: 1px solid $line-color;
+			text-align: center;
+			background-color: $header-color;
+			color: $text-color-contrast;
+		}
+	}
+}
